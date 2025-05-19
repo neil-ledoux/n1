@@ -527,7 +527,7 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			body, input, textarea, select {
-				font-size: 90%;
+				font-size: 98%;
 			}
 
 		}
@@ -535,7 +535,7 @@ input, select, textarea {
 		@media screen and (max-width: 1000px) {
 
 			body, input, textarea, select {
-				font-size: 94%;
+				font-size: 112%;
 			}
 
 		}
@@ -543,7 +543,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			body, input, textarea, select {
-				font-size: 98%;
+				font-size: 120%;
 				line-height: 1.5em;
 			}
 
