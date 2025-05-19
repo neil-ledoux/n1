@@ -511,7 +511,7 @@ input, select, textarea {
 		@media screen and (max-width: 1920px) {
 
 			body, input, textarea, select {
-				font-size: 11pt;
+				font-size: 84%;
 			}
 
 		}
@@ -519,7 +519,7 @@ input, select, textarea {
 		@media screen and (max-width: 1680px) {
 
 			body, input, textarea, select {
-				font-size: 11pt;
+				font-size: 86%;
 			}
 
 		}
@@ -527,7 +527,7 @@ input, select, textarea {
 		@media screen and (max-width: 1280px) {
 
 			body, input, textarea, select {
-				font-size: 11pt;
+				font-size: 90%;
 			}
 
 		}
@@ -535,7 +535,7 @@ input, select, textarea {
 		@media screen and (max-width: 1000px) {
 
 			body, input, textarea, select {
-				font-size: 11pt;
+				font-size: 94%;
 			}
 
 		}
@@ -543,7 +543,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			body, input, textarea, select {
-				font-size: 12pt;
+				font-size: 98%;
 				line-height: 1.5em;
 			}
 
@@ -1184,6 +1184,37 @@ input, select, textarea {
 	max-width: 40%;
 	margin: 25% auto 0 auto ; /* centers the section horizontally */ padding: 20px 20px; font-size: 94%;
   }
+
+
+
+  @media screen and (max-width: 1280px) {
+
+	#intro p {
+		max-width: 42%;
+		margin: 25% auto 0 auto ; /* centers the section horizontally */ padding: 20px 20px; font-size: 94%;
+	  }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+	#intro p {
+		max-width: 68%;
+		margin: 25% auto 0 auto ; /* centers the section horizontally */ padding: 20px 20px; font-size: 94%;
+	  }
+
+}
+
+@media screen and (max-width: 736px) {
+
+	#intro p {
+		max-width: 78%;
+		margin: 25% auto 0 auto ; /* centers the section horizontally */ padding: 20px 20px; font-size: 94%;
+	  }
+
+}
+
+
 
 
   #intro-image {
