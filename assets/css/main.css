@@ -2334,6 +2334,8 @@ input, select, textarea {
 		background-position: top left, center center;
 	}
 
+	#one li { padding: 10px; }
+
 
 	#one h2 {
 
