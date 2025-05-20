@@ -1543,6 +1543,21 @@ input, select, textarea {
 	margin: 2em 3%;
 }
 
+/* This targets text elements inside the gallery */
+.gallery p,
+.gallery h1,
+.gallery h2,
+.gallery h3,
+.gallery h4,
+.gallery h5,
+.gallery h6,
+.gallery span,
+.gallery .text {
+	text-align: left;
+	margin-bottom: 50px;
+}
+
+
 .gallery article .image {
 	display: block;
 	max-width: 190px;
