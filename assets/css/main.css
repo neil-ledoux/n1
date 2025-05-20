@@ -1313,7 +1313,7 @@ input, select, textarea {
 		-ms-box-sizing: content-box;
 		box-sizing: content-box;
 		background: #fff;
-		padding-bottom: 0.1em;
+		padding-bottom: 4.2em;
 		box-shadow: 0 0.1em 0.15em 0 rgba(0, 0, 0, 0.15);
 	}
 
@@ -1365,7 +1365,7 @@ input, select, textarea {
 				text-align: right;           /* Align the text to the left */
 				cursor: default;
 				z-index: 1;
-				 margin-right: 40px; margin-left: -50px; padding-bottom: 20px; padding-top: 20px;
+				 margin-right: 40px; margin-left: -50px; padding-bottom: 20px; padding-top: 30px;
 			  }
 
 
@@ -1535,38 +1535,25 @@ input, select, textarea {
 
 /* Gallery */
 
-	.gallery {
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-flex-wrap: wrap;
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		width: 45em;
-		max-width: 100%;
-		margin: 0 auto 2em auto;
-	}
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 94%;
+	margin: 2em 3%;
+}
 
-		.gallery article {
-			-moz-transition: -moz-transform 1s ease, opacity 1s ease;
-			-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
-			-ms-transition: -ms-transform 1s ease, opacity 1s ease;
-			transition: transform 1s ease, opacity 1s ease;
-			-moz-transform: translateX(0);
-			-webkit-transform: translateX(0);
-			-ms-transform: translateX(0);
-			transform: translateX(0);
-			width: 50%;
-			position: relative;
-			opacity: 1.0;
-		}
+.gallery article .image {
+	display: block;
+	max-width: 190px;
+	margin: 0 auto; padding: 20px;
+}
 
-			.gallery article .image {
-				margin: 0;
-				display: block;
-			}
+.gallery article .image img {
+	display: block;
+	margin: 0 auto;
+}
+
 
 			.gallery article:nth-last-child(1n) {
 				-moz-transition-delay: 0.05s;
@@ -2551,3 +2538,20 @@ font-size: 92%;
 			}
 
 		}
+
+
+		/* Disable all transition and opacity effects */
+.inactive {
+	opacity: 1 !important;
+	transform: none !important;
+	pointer-events: auto !important;
+}
+
+.gallery article,
+.main,
+section,
+header {
+	opacity: 1 !important;
+	transform: none !important;
+	transition: none !important;
+}
