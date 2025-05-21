@@ -391,8 +391,26 @@
 
 	
 	
-	
-  
+	<script>
+  function overridePoptroxOverlay() {
+    const overlay = document.getElementById('poptrox-overlay');
+    if (overlay) {
+      overlay.style.setProperty('background', 'white', 'important');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Run once in case overlay loads immediately
+    overridePoptroxOverlay();
+
+    // Also run on every click, in case overlay is re-created
+    document.body.addEventListener('click', () => {
+      setTimeout(overridePoptroxOverlay, 50);
+    });
+  });
+</script>
+
+ 
   
   
   

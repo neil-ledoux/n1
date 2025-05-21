@@ -52,7 +52,7 @@ table {
 }
 
 body {
-	-webkit-text-size-adjust: none;
+	-webkit-text-size-adjust: none; background-color: #ffffff;
 }
 
 mark {
@@ -1313,10 +1313,17 @@ input, select, textarea {
 
 .poptrox-popup {
   box-sizing: content-box;
-  background: #fff;
-  padding-bottom: 4.2em;
+  background: #fff; padding: 0.2em 4em 4.2em 4em;
+ 
   position: relative;
 }
+
+
+body.poptrox-popup-active::before {
+  background-color: white !important;
+}
+
+
 
 /* Adjust navigation overlays to top half only */
 .poptrox-popup .nav-previous,
@@ -1326,10 +1333,10 @@ input, select, textarea {
   height: 70%; /* only top half of popup */
   width: 50%;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.01);
+  background: none;
   opacity: 0;
   z-index: 10;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: rgba(255, 253, 253, 0);
   transition: opacity 0.2s ease-in-out;
 }
 
@@ -1372,7 +1379,7 @@ input, select, textarea {
 
 .poptrox-popup:hover .nav-next,
 .poptrox-popup:hover .nav-previous {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .poptrox-popup:hover .nav-next:hover,
@@ -1383,7 +1390,7 @@ input, select, textarea {
 /* Hover behavior for overlays */
 .poptrox-popup:hover .nav-next,
 .poptrox-popup:hover .nav-previous {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 .poptrox-popup:hover .nav-next:hover,
@@ -1395,7 +1402,7 @@ input, select, textarea {
 .poptrox-popup .closer {
   position: absolute;
   top: 0px;
-  right: -70px;
+  right: -4px;
   width: 64px;
   height: 64px;
   text-indent: -9999px;
@@ -1421,11 +1428,11 @@ input, select, textarea {
 }
 
 .poptrox-popup:hover .closer {
-  opacity: 0.2;
+  opacity: 0.9;
 }
 
 .poptrox-popup:hover .closer:hover {
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 /* Caption wrapper layout (with view link) */
@@ -1453,6 +1460,13 @@ input, select, textarea {
   flex-grow: 1;
   z-index: 600;
   position: relative; padding: 20px; top: 12px;
+}
+
+
+.poptrox-overlay,
+.poptrox-popup-background,
+body.poptrox-popup-active::before {
+  background-color: white !important;
 }
 
 /* Touch devices */
@@ -2514,3 +2528,6 @@ header {
 	transform: none !important;
 	transition: none !important;
 }
+
+
+
