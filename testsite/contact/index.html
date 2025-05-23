@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Neil LeDoux</title>
+  <meta name="author" content="Neil LeDoux" />
+  <meta name="description" content="Neil LeDoux: artwork and news" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/png" href="../css/icons/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" href="../css/hover.css" />
+</head>
+
+<body id="home">
+
+  <header class="cf">
+    <div id="header-content" class="cf">
+      <h1><a href="../index.html">Neil LeDoux</a></h1>
+      <nav>
+        <ul>
+          <li><a href="../work/index.html">Work</a></li>
+          <li><a href="../about/index.html">About</a></li>
+          <li class="current_page_item"><a href="../contact/index.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="main" role="main" class="cf">
+    <div id="main-content">
+
+      <div class="about-container">
+        <div class="about-image">
+          
+ <table class="table-contact">
+            <tbody>
+              <tr>
+                <td><i class="fas fa-envelope"></i></td>
+                <td>
+                  <a href="#" class="obfuscated-email"></a>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fab fa-instagram"></i></td>
+                <td>
+                  <a href="https://instagram.com/neilledoux" target="_blank">instagram.com/neilledoux</a>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fab fa-linkedin-in"></i></td>
+                <td>
+                  <a href="https://linkedin.com/in/neilledoux" target="_blank">linkedin.com/in/neilledoux</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+        </div>
+        <div class="about-text">
+
+         
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="clear">
+    <div id="footer-content">
+      <p>Site content is &#169; Neil LeDoux 2025. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts at end of body -->
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const codes = [110,101,105,108,64,110,101,105,108,45,108,101,100,111,117,120,46,99,111,109];
+    const email = String.fromCharCode(...codes);
+    const link = document.querySelector('.obfuscated-email');
+    if (link) {
+      link.href = 'mailto:' + email;
+      link.textContent = email;
+    }
+  });
+</script>
+  <script src="../js/jquery.min.js" defer></script>
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js" defer></script>
+  <script src="../js/jquery.masonry.pkgd.min.js" defer></script>
+  <script src="../js/jquery.scrollTo-min.js" defer></script>
+  <script src="../js/jquery.localscroll-min.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const gallery = document.querySelector('#gallery');
+      if (gallery) {
+        imagesLoaded(gallery, { background: true }, function(instance) {
+          console.log('ALL images finished loading');
+          console.log('Broken:', instance.hasAnyBroken);
+        });
+      }
+
+      var grid = document.querySelector('.thumbs');
+      if (grid) {
+        imagesLoaded(grid, function () {
+          new Masonry(grid, {
+            itemSelector: 'li',
+            columnWidth: 'li',
+            percentPosition: true
+          });
+        });
+      }
+    });
+
+    $(document).ready(function () {
+      $('.n_nav').localScroll({
+        duration: 2800,
+        easing: 'swing',
+        hash: true
+      });
+    });
+  </script>
+  <script src="../js/prev-next.js" defer></script>
+</body>
+</html>
