@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Page</title>
+    <link rel="stylesheet" href="startstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>N3ILATR0N</h1>
+        <div id="info-container">
+            <div id="current-date"></div>
+            <div id="weather-conditions"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="column">
+                <h2>AI & Productivity</h2>
+                <ul>
+                    <li><a href="https://www.perplexity.ai" target="_blank"><i class="fas fa-brain"></i> Perplexity AI</a></li>
+                    <li><a href="https://notebooklm.google.com" target="_blank"><i class="fa-solid fa-book-open"></i> NotebookLM</a></li>
+                    <li><a href="https://chatgpt.com" target="_blank"><i class="fa-solid fa-minimize"></i> ChatGPT</a></li>
+                    <li><a href="https://labs.google/fx/tools/image-fx#" target="_blank"><i class="fas fa-image"></i> Google ImageFX</a></li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h2>Tools & Services</h2>
+                <ul>
+                    <li><a href="https://gmail.com" target="_blank"><i class="fas fa-envelope"></i> Gmail</a></li>
+                    <li><a href="https://drive.google.com/drive/home" target="_blank"><i class="fa-brands fa-google-drive"></i> Google Drive</a></li>
+                    <li><a href="https://photos.google.com" target="_blank"><i class="fa-solid fa-image"></i> Google Photos</a></li>
+                    <li><a href="https://remotedesktop.google.com/access/" target="_blank"><i class="fa-solid fa-desktop"></i> Remote Desktop</a></li>
+
+                    <li><a href="https://www.google.com/maps" target="_blank"><i class="fa-solid fa-map"></i> Google Maps</a></li>
+                    <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a></li>
+                    <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    <li><a href="https://music.youtube.com" target="_blank"><i class="fas fa-music"></i> YouTube Music</a></li>
+                    <li><a href="http://192.168.86.247:8096" target="_blank"><i class="fas fa-server"></i> Emby</a></li>
+                      <li><a href="http://192.168.86.247:8001" target="_blank"><i class="fas fa-server"></i>Jellyfin</a></li>
+                    <li><a href="https://home.google.com/u/0/home/1-477d06164763f1b2d1aeecb5ed81bc07d959df81bf0cbbd97b9d1cea9562ef9a/cameras/grid" target="_blank"><i class="fas fa-video"></i> Google Home Cameras</a></li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h2>Reference & Personal</h2>
+                <ul>
+                    <li><a href="https://neil-ledoux.com" target="_blank"><i class="fas fa-user"></i> Neil-LeDoux.com</a></li>
+                    <li><a href="https://en.wikipedia.org/" target="_blank"><i class="fab fa-wikipedia-w"></i> Wikipedia</a></li>
+                    <li><a href="https://codebeautify.org" target="_blank"><i class="fas fa-code"></i> Code Beautify</a></li>
+                    <li><a href="https://github.com/signneilup/n" target="_blank"><i class="fa-brands fa-github"></i> Edit This Page - Github</a></li>
+                    <li><a href="https://www.pbs.org/newshour/" target="_blank"><i class="fas fa-newspaper"></i> PBS NewsHour</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="column">
+                <h2>Art News</h2>
+                <ul id="art-news-feed"></ul>
+            </div>
+
+            <div class="column">
+                <h2>World News</h2>
+                <ul id="world-news-feed"></ul>
+            </div>
+
+            <div class="column">
+                <h2>Art Market News</h2>
+                <ul id="art-market-feed"></ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Neil. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Current Date
+      function updateDate() {
+          const now = new Date();
+          const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+          document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+      }
+      updateDate();
+      setInterval(updateDate, 1000 * 60);
+
+      // Helper function to fetch and parse RSS feeds using rss2json API
+      function fetchRSSFeed(url) {
+          return fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`)
+              .then(response => response.json())
+              .then(data => data.items || [])
+              .catch(error => {
+                  console.error('Error fetching RSS feed:', error);
+                  return [];
+              });
+      }
+
+        // Helper function to extract hostname from a URL
+        function getHostname(url) {
+            try {
+                const urlObj = new URL(url);
+                return urlObj.hostname.replace('www.', '');
+            } catch (e) {
+                console.error('Error parsing URL:', url, e);
+                return 'Unknown Source';
+            }
+        }
+
+      // Helper function to display feed items with styled headlines and source names
+      function displayFeedItems(items, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = ''; // Clear existing content
+
+        if (items.length === 0) {
+            container.innerHTML = '<li>No items to display.</li>';
+            return;
+        }
+
+        items.forEach(item => {
+            const article = document.createElement('li');
+            article.className = 'rss-item';
+            const sourceName = getHostname(item.link); // Use the helper function
+            article.innerHTML = `
+                <a href="${item.link}" target="_blank">${item.title}</a>
+                <a href="${item.link}" target="_blank" class="rss-source">- ${sourceName}</a>
+            `;
+            container.appendChild(article);
+        });
+    }
+
+      // Define RSS feed URLs
+      const artNewsFeeds = [
+          'https://www.artnews.com/feed/',
+          'https://www.artforum.com/index.rss',
+          'https://www.artsy.net/rss/news',
+          'http://fadmagazine.com/feed',
+          'https://www.mutualart.com/rss/news',
+          'https://www.artlyst.com/feed/',
+          'https://www.widewalls.ch/feed/',
+          'http://www.blouinartinfo.com/rss/index',
+          'https://www.theartnewspaper.com/rss',
+          'https://www.apollo-magazine.com/feed/'
+      ];
+
+      const worldNewsFeeds = [
+          'http://feeds.bbci.co.uk/news/world/rss.xml',
+          'https://www.npr.org/rss/rss.php?id=1004',
+          'https://www.aljazeera.com/xml/rss/all.xml'
+      ];
+
+    const artMarketNewsFeeds = [
+        'https://news.artnet.com/rss',  // Artnet News
+        'https://www.theartnewspaper.com/feeds/rss',  // The Art Newspaper
+        'https://hyperallergic.com/feed/',  // Hyperallergic
+        'https://artlyst.com/feed/',  // Artlyst
+        'https://fadmagazine.com/feed',  // FAD Magazine
+        'https://www.mutualart.com/rss/news',  // MutualArt
+        'https://www.apollo-magazine.com/feed/',  // Apollo Magazine
+        'https://www.art-agenda.com/syndication.rss',  // Art-Agenda
+        'https://www.art-critique.com/category/news/feed/',  // Art Critique
+        'https://www.aestheticamagazine.com/feed/'  // Aesthetica Magazine
+    ];
+
+      // Function to load all aggregated feeds and display them
+      function loadAggregatedFeeds() {
+          // Fetch and display Art News
+          Promise.all(artNewsFeeds.map(fetchRSSFeed))
+              .then(results => {
+                  const allItems = results.flat();
+                  const sortedItems = allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+                  displayFeedItems(sortedItems.slice(0, 10), 'art-news-feed');
+              });
+
+          // Fetch and display World News
+          Promise.all(worldNewsFeeds.map(fetchRSSFeed))
+              .then(results => {
+                  const allItems = results.flat();
+                  const sortedItems = allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+                  displayFeedItems(sortedItems.slice(0, 10), 'world-news-feed');
+              });
+
+        // Fetch and display Art Market News
+        Promise.all(artMarketNewsFeeds.map(fetchRSSFeed))
+            .then(results => {
+                const allItems = results.flat();
+                const sortedItems = allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+                displayFeedItems(sortedItems.slice(0, 10), 'art-market-feed');
+            });
+      }
+
+      // Run everything
+      document.addEventListener('DOMContentLoaded', function() {
+          updateDate();
+          loadAggregatedFeeds();
+      });
+    </script>
+</body>
+</html>
