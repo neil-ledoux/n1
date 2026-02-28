@@ -23,7 +23,7 @@ a:hover {
 /* Header */
 header {
     background-color: #101010;
-    color: #D22B2B;
+ color: #880808;
     padding: 20px 0;
     text-align: center;opacity: 0.50;
 }
@@ -85,7 +85,7 @@ color: #D22B2B;
 }
 
 .column ul li a {
-    display: flex;  color: #D22B2B;
+    display: flex;  color: #880808;
     align-items: center;
 }
 
@@ -100,8 +100,7 @@ color: #D22B2B;
     content: '';
     display: inline-block;
     width: 20px;
-    margin-right: 10px;
-}
+    margin-right: 10px;color: #880808;}
 
 /* RSS Styles */
 .rss-item {
@@ -109,11 +108,10 @@ color: #D22B2B;
     border-bottom: solid 2px #000000;
     text-align: left;
     padding-bottom: 8px;
-    overflow: hidden;
-}
+    overflow: hidden;color: #880808;}
 
 .rss-item a {
-    color: #D22B2B;
+    color: #880808;
     text-decoration: none;
     margin-bottom: 6px;
     display: block;
@@ -172,6 +170,17 @@ footer {
     header h1 {
         font-size: 2rem;
     }
+
+
+
+
+    
+.rss-item a {
+
+color: #AA4A44;
+    
+}
+    
 }
 
 @media screen and (max-width: 480px) {
