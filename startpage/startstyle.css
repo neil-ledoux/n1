@@ -85,7 +85,7 @@ color: #D22B2B;
 }
 
 .column ul li a {
-    display: flex;
+    display: flex;  color: #D22B2B;
     align-items: center;
 }
 
