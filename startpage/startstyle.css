@@ -10,14 +10,14 @@ body {
 
 /* Links */
 a {
-    color: #61afef;
+    color: #FF0000;
     text-decoration: none;
     font-weight: 300;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #80bfff;
+    color: #FF0000;
 }
 
 /* Header */
