@@ -10,7 +10,7 @@ body {
 
 /* Links */
 a {
-    color: #FF0000;
+    color: #D22B2B;
     text-decoration: none;
     font-weight: 300;
     transition: color 0.3s ease;
@@ -23,9 +23,9 @@ a:hover {
 /* Header */
 header {
     background-color: #101010;
-    color: #FF0000;
+    color: #D22B2B;
     padding: 20px 0;
-    text-align: center;
+    text-align: center;opacity: 0.60;
 }
 
 header h1 {
