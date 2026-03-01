@@ -10,7 +10,7 @@ body {
 
 /* Links */
 a {
-    color: #D22B2B;
+    color: #D64040;
     text-decoration: none;
     font-weight: 300;
     transition: color 0.3s ease;
@@ -85,7 +85,7 @@ color: #D22B2B;
 }
 
 .column ul li a {
-    display: flex;  color: #880808;
+    display: flex;  color: #D64040;
     align-items: center;
 }
 
@@ -111,7 +111,7 @@ color: #D22B2B;
     overflow: hidden;color: #880808;}
 
 .rss-item a {
-    color: #880808;
+    color: #D64040;
     text-decoration: none;
     margin-bottom: 6px;
     display: block;
