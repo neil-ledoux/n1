@@ -10,7 +10,7 @@ body {
 
 /* Links */
 a {
-    color: #D64040;
+    color: #AC5353;
     text-decoration: none;
     font-weight: 300;
     transition: color 0.3s ease;
@@ -85,7 +85,7 @@ color: #D22B2B;
 }
 
 .column ul li a {
-    display: flex;  color: #D64040;
+    display: flex;   color: #AC5353;
     align-items: center;
 }
 
@@ -100,7 +100,7 @@ color: #D22B2B;
     content: '';
     display: inline-block;
     width: 20px;
-    margin-right: 10px;color: #880808;}
+    margin-right: 10px;  color: #AC5353;}
 
 /* RSS Styles */
 .rss-item {
@@ -111,7 +111,7 @@ color: #D22B2B;
     overflow: hidden;color: #880808;}
 
 .rss-item a {
-    color: #D64040;
+     color: #AC5353;
     text-decoration: none;
     margin-bottom: 6px;
     display: block;
@@ -139,7 +139,7 @@ color: #D22B2B;
     text-align: left;
     display: block;
     margin-top: 5px;
-    margin-left: 5px; color: #D22B2B!important;
+    margin-left: 5px;  color: #AC5353 !important;
    
   opacity: 0.50;
 }
